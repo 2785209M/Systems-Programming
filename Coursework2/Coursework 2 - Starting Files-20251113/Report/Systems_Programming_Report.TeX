@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{amsmath}
+
+\title{Systems Programming Report 2}
+\author{James Henrik Middleton}
+\date{November 2025}
+
+\begin{document}
+\maketitle
+
+\begin{flushleft}
+    I have implemented Tier three of the Solution.\\
+    This code compiles correctly with no bugs or errors that I am aware of.\\
+    Note that you must compile using the syntax \\"g++ -std=c++17 -pthread strace-analyser.cpp -o strace-analyser"\\
+    to correctly compile using threads on the school linux servers.\\
+\end{flushleft}
+
+\begin{figure}[htbp!]
+    \begin{center}
+    The timings for the Sequential version:\\
+    \includegraphics[width=0.2\linewidth]{./timings-sequential.png}
+    \end{center}
+\end{figure}
+\hfill
+\begin{center}
+    The timings for the Threaded version:
+    \begin{tabular}{||c c c c c||} 
+        \hline
+        Runs/Threads & 1 & 2 & 4 & 8 \\ [0.5ex] 
+        \hline\hline
+        1 & 0.231s & 0.319s & 0.432s & 0.525s\\ 
+        \hline
+        2 & 0.213 & 0.330s & 0.482s & 0.496s\\
+        \hline
+        3 & 0.220 & 0.319s & 0.468s & 0.516s\\
+        \hline
+        Median & 0.221 & 0.323 & 0.461 & 0.512\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{flushleft}
+    Despite the threaded method theoretically being more efficient it has a significantly longer 
+    runtime than the sequential version. This is most likely due to the sample test file being so 
+    small. The threads don't have time to work properly and the time that it takes to open and close
+    them makes it inefficient for small files.\\
+\end{flushleft}
+
+\end{document}
